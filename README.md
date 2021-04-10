@@ -6,7 +6,7 @@ Aplicacion de test para encontrar restaurantes cercanos.
 
 Screen inicial de la app, puedes registrarte o hacer login
 
-![login screen](./assets/login-screen.png)
+![login screen](./assets/docs/login-screen.png)
 
 A few resources to get you started if this is your first Flutter project:
 
