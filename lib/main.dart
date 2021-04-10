@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:restaurantes_test_app/providers/global_provider.dart';
-import 'package:restaurantes_test_app/ui/screens/auth/auth.dart';
+import 'package:restaurantes_test_app/ui/screens/root/root_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
                 theme: ThemeData(
                   primarySwatch: Colors.green,
                 ),
-                home: AuthPage(),
+                home: RootPage(),
               ),
             ),
           );

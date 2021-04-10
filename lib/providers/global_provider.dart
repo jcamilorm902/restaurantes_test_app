@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
+import 'package:restaurantes_test_app/utils/CustomException.dart';
 
 class GlobalProvider with ChangeNotifier {
   final FirebaseAuth auth = FirebaseAuth.instance;
@@ -25,15 +26,15 @@ class GlobalProvider with ChangeNotifier {
       notifyListeners();
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        throw Exception('La password ingresada es muy debil.');
+        throw CustomException('La password ingresada es muy debil.');
       } else if (e.code == 'email-already-in-use') {
-        throw Exception('El correo electrónico ya está en uso.');
+        throw CustomException('El correo electrónico ya está en uso.');
       }
       print(e);
-      throw Exception('Algo no anda bien. Intenta mas tarde.');
+      throw CustomException('Algo no anda bien. Intenta mas tarde.');
     } catch (e) {
       print(e);
-      throw Exception('Algo no anda bien. Intenta mas tarde.');
+      throw CustomException('Algo no anda bien. Intenta mas tarde.');
     }
   }
 
@@ -47,15 +48,15 @@ class GlobalProvider with ChangeNotifier {
       notifyListeners();
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
-        throw Exception('Usuario no encontrado.');
+        throw CustomException('Usuario no encontrado.');
       } else if (e.code == 'wrong-password') {
-        throw Exception('Password incorrecto.');
+        throw CustomException('Password incorrecto.');
       }
       print(e);
-      throw Exception('Algo no anda bien. Intenta mas tarde.');
+      throw CustomException('Algo no anda bien. Intenta mas tarde.');
     } catch (e) {
       print(e);
-      throw Exception('Algo no anda bien. Intenta mas tarde.');
+      throw CustomException('Algo no anda bien. Intenta mas tarde.');
     }
   }
 
