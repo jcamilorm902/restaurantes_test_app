@@ -8,11 +8,15 @@ Screen inicial de la app, puedes registrarte o hacer login
 
 ![login screen](./assets/docs/login-screen.png)
 
-A few resources to get you started if this is your first Flutter project:
+## Home
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Pantalla para consulta de restaurantes, para los usuarios logueados, en la parte superior derecha se encuentra la opción de logout
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![home screen](./assets/docs/home-screen.png)
+
+Tras consultar los restaurantes se puede ver la siguiente imagen:
+
+![after query screen](./assets/docs/query-screen.png)
+
+- [Consulta de restaurantes por documenu.com](https://documenu.com/dashboard/apipreview)
+
