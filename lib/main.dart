@@ -1,4 +1,8 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:restaurantes_test_app/providers/global_provider.dart';
+import 'package:restaurantes_test_app/ui/screens/auth/auth.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,21 +12,37 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+    return FutureBuilder(
+      future: Firebase.initializeApp(),
+      builder: (context, snapshot) {
+        // Check for errors
+        if (snapshot.hasError) {
+          // this does not happen in normal conditions, just print the error
+          print(snapshot.error);
+          return Container();
+        }
+
+        // After complete, show the application
+        if (snapshot.connectionState == ConnectionState.done) {
+          return GestureDetector(
+            onTap: () {
+              FocusManager.instance.primaryFocus.unfocus();
+            },
+            child: ChangeNotifierProvider(
+              create: (_) => GlobalProvider(),
+              child: MaterialApp(
+                title: 'Restaurantes Demo',
+                theme: ThemeData(
+                  primarySwatch: Colors.green,
+                ),
+                home: AuthPage(),
+              ),
+            ),
+          );
+        }
+
+        return CircularProgressIndicator();
+      },
     );
   }
 }

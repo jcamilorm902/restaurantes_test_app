@@ -2,9 +2,11 @@
 
 Aplicacion de test para encontrar restaurantes cercanos.
 
-## Getting Started
+## Login o Registro
 
-This project is a starting point for a Flutter application.
+Screen inicial de la app, puedes registrarte o hacer login
+
+![login screen](./assets/login-screen.png)
 
 A few resources to get you started if this is your first Flutter project:
 
